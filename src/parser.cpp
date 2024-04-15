@@ -81,8 +81,8 @@ void Parser::HandleYamlDirective(const Token& token) {
   str.get();
   str >> m_pDirectives->version.minor;
   if (!str || str.peek() != EOF) {
-    throw ParserException(
-        token.mark, std::string(ErrorMsg::YAML_VERSION) + token.params[0]);
+    YAML_throw<ParserException>(
+      token.mark, std::string(ErrorMsg::YAML_VERSION) + token.params[0]);
   }
 
   if (m_pDirectives->version.major > 1) {

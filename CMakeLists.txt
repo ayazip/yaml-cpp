@@ -111,7 +111,7 @@ endif()
 if(YAML_CPP_MAIN_PROJECT)
   target_compile_options(yaml-cpp
     PRIVATE
-      $<${not-msvc}:-Wall -Wextra -Wshadow -Weffc++ -Wno-long-long>
+      $<${not-msvc}:-Wall -Wextra -Wshadow -Weffc++ -Wno-long-long -fno-exceptions>
       $<${not-msvc}:-pedantic -pedantic-errors>)
 endif()
 

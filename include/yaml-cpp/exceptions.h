@@ -22,7 +22,11 @@ YAML_CPP_NORETURN void YAML_throw(Args&&... args) {
 	throw Ex(std::forward<Args>(args)...);
 }
 #else
-YAML_CPP_NORETURN void handle_exception(const char* what);
+YAML_CPP_NORETURN void handle_exception(const char* what) {
+    std::cout << "Parser failure";
+    std::cout << what;
+    std::exit(1);
+};
 
 template<typename Ex, typename... Args>
 YAML_CPP_NORETURN void YAML_throw(Args&&... args) {
